@@ -42,6 +42,36 @@ input:focus-visible {
   background: conic-gradient(from calc(var(--r2) - 80deg) at var(--x) 50px, var(--input-bg-color) 0%, #fff 20%, var(--input-bg-color) 25%);
   animation: -0.64s rotating2 3s linear infinite, -0.64s x 3s linear infinite;
 }
+
+@media (max-width: 600px) {
+  #b {
+    background: conic-gradient(from calc(var(--r2) - 80deg) at var(--x) 50px, var(--input-bg-color) 0%, #fff 20%, var(--input-bg-color) 25%);
+    animation: -0.64s rotating2m 3s linear infinite, -0.64s xm 3s linear infinite;
+  }
+}
+
+@keyframes xm {
+  /* w:h === 6:1 */
+  /* with a 80px x-margin */
+  0% {
+    --x: 80px;
+  }
+  /* 6/(6+3.14) * 50% */
+  20% {
+    --x: min(520px, calc(100vw - 120px));
+  }
+  50% {
+    --x: min(520px, calc(100vw - 120px));
+  }
+  /* 50% + 32.8% */
+  70% {
+    --x: 80px;
+  }
+  100% {
+    --x: 80px;
+  }
+}
+
 @keyframes x {
   /* w:h === 6:1 */
   /* with a 80px x-margin */
@@ -50,10 +80,10 @@ input:focus-visible {
   }
   /* 6/(6+3.14) * 50% */
   32.82275711% {
-    --x: 520px;
+    --x: min(520px, calc(100vw - 120px));
   }
   50% {
-    --x: 520px;
+    --x: min(520px, calc(100vw - 120px));
   }
   /* 50% + 32.8% */
   82.82275711% {
@@ -75,6 +105,24 @@ input:focus-visible {
     --r2: 180deg;
   }
   82.82275711% {
+    --r2: 180deg;
+  }
+  100% {
+    --r2: 360deg;
+  }
+}
+
+@keyframes rotating2m {
+  0% {
+    --r2: 0deg;
+  }
+  20% {
+    --r2: 0deg;
+  }
+  50% {
+    --r2: 180deg;
+  }
+  70% {
     --r2: 180deg;
   }
   100% {
