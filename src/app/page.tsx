@@ -13,7 +13,7 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    let r: any = document.querySelector(":root");
+    let r = document.querySelector<HTMLElement>(":root");
     let color = "#ffffff";
     const interval = setInterval(() => {
       if (!r) return;
